@@ -1,0 +1,59 @@
+﻿@model LabNumber21.Models.RegistrationForm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <p>your firstname:@Html.TextBoxFor(n => n.FirstName)</p>
+            <p>your Lastname: @Html.TextBoxFor(n => n.LastName)</p>
+
+            <p>your Age:      @Html.TextBoxFor(n => n.Age)</p>
+
+
+            <p>
+                Gender          @Html.DropDownListFor(x => x.Gender, new[] {
+new SelectListItem() {Text="Gender",
+        },
+       new SelectListItem() {Text="Male",
+       Value="Male" },
+       new SelectListItem() {Text="Female" ,
+       Value="Female"}
+       })
+            </p>
+
+
+            <p>
+                Type Of Study :  @Html.DropDownListFor(x => x.TypeOfStudy, new[] {
+          new SelectListItem() {Text="Regular",
+          Value="Regular Student" },
+          new SelectListItem() {Text="Part Time" ,
+          Value="PartTime Student"},new SelectListItem() {Text="Online" ,
+          Value="Online Student"}
+          })
+            </p>
+            <input type="submit" values="Thanks" />
+        }
+    </div>
+</body>
+</html>
